@@ -24,5 +24,22 @@ var n = 10;
 console.log(typeof n);
 n = 10 + "";
 console.log(typeof n);
+//To change string to number use (+)before that string
+//or use Number("that string")
+var s = "50 ";
+console.log(typeof s);
+var p = +"50";
+console.log(typeof p);
+//String Concatination
+console.log(s + n);
+//Using Back-tips
+console.log(`My name is ${name1} and it is ${p}`);
+//Undefined datatype
+let x;
+console.log(typeof x);
+
+
+
+
 
 
