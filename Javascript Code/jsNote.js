@@ -74,9 +74,37 @@ console.log(i + j);
 //->true, ->"abc", ->1
 
 //Ternary Operator
-let age=21;
+let age = 21;
 let drink = age >= 5 ? "Coffee" : "Milk";
 console.log(drink);
+
+//In js, Reference types are called Object
+
+//To check the object is array or not
+let arr = [25, "Adarsha", 8, null, undefined];
+console.log(Array.isArray(arr));
+console.log(arr);
+
+//Push can change the original array & add element in the last
+arr.push("AOT");
+console.log(arr);
+
+//Pop removed the last element in the array
+let pop = arr.pop();
+console.log(pop);
+console.log(arr);
+
+//Unshift add element in the first position in the array
+arr.unshift(545);
+console.log(arr);
+
+//Shift remove the element from the first position in the array
+let removed = arr.shift();
+console.log(removed);
+console.log(arr);
+
+//Both pop & shift return the deleted element
+//(Push & Pop) is faster than (Shift & Unshift),bcz after adding/deleting it shifts the remaining items
 
 
 
