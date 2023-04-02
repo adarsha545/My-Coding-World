@@ -6,6 +6,7 @@
 !*.c
 !*.py
 !*.js
+!*.dart
 # Or directories
 !*/
 !.gitignore
