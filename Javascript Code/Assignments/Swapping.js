@@ -1,7 +1,7 @@
 //let a = prompt("Enter a :");
 //let b = prompt("Enter b :");
-let a= 2;
-let b=3;
+let a = 2;
+let b = 3;
 console.log("Before Swapping :")
 console.log("a:", a);
 console.log("b:", b);
