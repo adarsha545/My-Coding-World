@@ -365,3 +365,57 @@ function addAll(...numbers) {
 }
 const ans5 = addAll(4, 5, 4, 2, 10);
 console.log(ans5);
+
+// Parameter Destructuring
+const man = {
+    firstName: "Ravan",
+    gender: "male",
+    age: 500
+}
+function printDetails({ firstName, gender, age }) {
+    console.log(firstName);
+    console.log(gender);
+    console.log(age);
+}
+printDetails(man);
+
+// Callback Function -> here we can pass function as argument, and we can call that function on another function
+function Func2(name) {
+    console.log("Inside func2")
+    console.log(`Your name is ${name}`);
+}
+function Func(callback) {
+    console.log("Hello there, I am in func ")
+    callback("Tanzio Kamada");
+}
+Func(Func2);
+
+//Function returning Function -> here after calling a function, that function return a function
+function myFunc() {
+    function hello() {
+        return "hello world";
+    }
+    return hello;
+}
+const answer = myFunc();
+console.log(answer());
+
+//For Each ->
+//Example -1
+const numbers = [4, 2, 5, 8];
+numbers.forEach(function (number, index) {
+    console.log(number * 3, index);
+});
+
+//Example-2
+const user246 = [
+    { firstName: "Akaza", age: 23 },
+    { firstName: "Nezuko", age: 21 },
+    { firstName: "Kashiro", age: 22 },
+    { firstName: "Zenitsu", age: 20 },
+]
+user246.forEach(function (user) {
+    console.log(user.firstName);
+});
+
+
