@@ -192,3 +192,49 @@ console.log(Object.keys(person));
 for (let key of Object.keys(person)) {
     console.log(person[key]);
 }
+
+//Computed Properties
+const item1 = "clg";
+const item2 = "CSE";
+const name10 = "AOT";
+const name11 = "4th";
+
+//Process-1
+const obj ={
+    [item1]:name10,
+    [item2]:name11
+}
+console.log(obj);
+
+//Process-2
+const obj2={};
+obj2[item1]=name10;
+obj2[item2]=name11;
+console.log(obj2);
+
+//Spread Operator -> (...)
+//It can be done only in string,array, bcz they are immutable
+//Number is not immutable,so there it is not possible
+const newarray = [..."ADARSHA"];
+console.log(newarray);
+
+//spread operator in objects
+//Two key in one object not possible,if it happen then it show the latest value
+const obj5 = {
+    f1:"Mango",
+    f2:"Apple"
+}
+const obj6 = {
+    f3:"banana",
+    f4:"grapes"
+}
+const obj7 = {...obj5,...obj6,f5:"Fruitx"};
+console.log(obj7);
+
+//Spreading in string
+const obj8 = {..."Academy"}
+console.log(obj8);
+
+//Spreaing in Array
+const obj9 = {...["anime", "coding"]}
+console.log(obj9);
