@@ -418,4 +418,52 @@ user246.forEach(function (user) {
     console.log(user.firstName);
 });
 
+//  Map ->
+//  In return, Map gives new array, so it is nessary to return value from that particular function.
+
+//  Example -1
+const nums = [3, 4, 6, 1, 8];
+const square = function (num) {
+    return num * num;
+}
+const squareNumber = nums.map(square);
+console.log(squareNumber);
+
+//Filter Method -> In it call back function return true/false, and it store the results in a new array.
+const evenNumbers = nums.filter((number) => {
+    return number % 2 === 0;
+});
+console.log(evenNumbers);
+
+//Reduce Method
+//Example -1 
+const numb = [1, 2, 3, 4, 5, 10];
+const sum = numb.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+});
+console.log(sum);
+
+/*accumulator , currentValue,  return
+1               2              3 
+3               3              6
+6               4              10
+10              5              15
+15              10             25 */
+
+//Example-2 
+const userCart = [
+    { productId: 1, productName: "mobile", price: 12000 },
+    { productId: 2, productName: "laptop", price: 22000 },
+    { productId: 3, productName: "tv", price: 15000 },
+]
+const totalAmount = userCart.reduce((totalPrice, currentProduct) => {
+    return totalPrice + currentProduct.price;
+}, 0)
+//here 0 is for initialization of totalPrice, means totalPrice = 0 (at first)
+console.log(totalAmount);
+
+// total price      currentValue       return
+// 0                {}                  12000
+// 12000            22000               34000
+// 34000            15000               49000
 
