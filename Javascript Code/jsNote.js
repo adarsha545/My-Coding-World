@@ -300,3 +300,68 @@ Print3();
 
 // Same Case, for Var -> Function Declaation
 // let/const -> function Expression/Arrow Function 
+
+// Function inside Function
+function write() {
+    function Print10() {
+        console.log("Today's date is : 04/04/2023");
+        console.log("Today's Time is : 12:32 PM");
+    }
+    function Print11() {
+        console.log("Today's date is : 04/04/2023");
+        console.log("Today's Time is : 10:32 PM");
+    }
+    function Print12() {
+        console.log("Today's date is : 04/04/2023");
+        console.log("Today's Time is : 1:32 PM");
+    }
+    Print10();
+    Print11();
+}
+write();
+
+// Lexical Scope
+// -> Local people dominate most, means if there have same name variable then it give prority in this way:
+// local scope-1 > local scope - 2 > Global Scope
+const myVar = "value1";
+function myApp() {
+    function myFunc() {
+        // const myVar = "value59";
+        const myFunc2 = () => {
+            console.log("inside myFunc", myVar);
+        }
+        myFunc2();
+    }
+    console.log(myVar);
+    myFunc();
+}
+myApp();
+
+//  (Let and const) are block scope, means we can acess that variable only in that block.
+//  Var is Function scope, means we can acess that variable from all over the programme.
+
+// Default Parameters
+function addTwo(a, b = 0) {
+    return a + b;
+}
+const ans = addTwo(4, 8);
+console.log(ans);
+
+// Rest Parameters -> (...c)
+function myFunc(a, b, ...c) {
+    console.log(`a is ${a}`);
+    console.log(`b is ${b}`);
+    console.log(`c is`, c);
+}
+myFunc(3, 4, 5, 6, 7, 8, 9);
+
+// Rest Parameters with example
+function addAll(...numbers) {
+    let total = 0;
+    for (let number of numbers) {
+        total = total + number;
+    }
+    return total;
+}
+const ans5 = addAll(4, 5, 4, 2, 10);
+console.log(ans5);
