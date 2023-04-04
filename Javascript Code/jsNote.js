@@ -467,3 +467,115 @@ console.log(totalAmount);
 // 12000            22000               34000
 // 34000            15000               49000
 
+// Sort Method
+
+// By default, it takes number as a string, and sort them according to their ASCII value of 1st letter.
+// During sorting, it changes the real array,so we need to clone that array.
+const numbers6 = [5, 9, 1200, 410, 3000];
+numbers.sort((a, b) => a - b);
+console.log(numbers6);
+
+// How it works
+// 1200,410
+// a-b ---> 790
+// a-b ---> postive (greater than 0) ---> b, a
+// 410 , 1200
+// a-b ---> negative ----> a,b
+// 5, 9 ---> -4 
+
+//Another Example
+
+const products = [
+    { productId: 1, produceName: "p1", price: 300 },
+    { productId: 2, produceName: "p2", price: 3000 },
+    { productId: 3, produceName: "p3", price: 200 },
+    { productId: 4, produceName: "p4", price: 8000 },
+    { productId: 5, produceName: "p5", price: 500 },
+]
+// Low To High
+const lowToHigh = products.slice(0).sort((a, b) => {
+    return a.price - b.price
+});
+// High to Low
+const highToLow = products.slice(0).sort((a, b) => {
+    return b.price - a.price;
+});
+console.log(lowToHigh);
+console.log(highToLow);
+
+// Find Method
+
+// It is used to find any item
+// In this example, when the length of the string is become 3, then it reurn that particular item
+// It always return the first item, that matches the rules first 
+const myArray = ["Hello", "catt", "dog", "lion"];
+const anss = myArray.find((string) => string.length === 3);
+console.log(anss);
+
+// Another Example
+const useres = [
+    { userId: 1, userName: "harshit" },
+    { userId: 2, userName: "harsh" },
+    { userId: 3, userName: "nitish" },
+    { userId: 4, userName: "mohit" },
+    { userId: 5, userName: "aaditya" },
+];
+const myUser = useres.find((user) => user.userId === 3);
+console.log(myUser);
+
+// Every Method
+
+// It returns boolean value (true/false)
+// It returns true when all the items satisfices the condition, otherwise it returns false.
+const numbs = [2, 4, 6, 9, 10];
+const even = numbs.every((number) => number % 2 === 0);
+console.log(even);
+
+//Some Method
+
+// It returns boolean value (true/false)
+// It returns true when any of the items satisfices the condition, otherwise it returns false.
+const nuber = [3, 8, 11, 9];
+const result = nuber.some((number) => number % 2 === 0);
+console.log(result);
+
+//Another Example
+
+const usercart = [
+    { productId: 1, productName: "mobile", price: 12000 },
+    { productId: 2, productName: "laptop", price: 22000 },
+    { productId: 3, productName: "tv", price: 35000 },
+    { productId: 3, productName: "macbook", price: 25000 },
+]
+const re = userCart.some((cartItem) => cartItem.price > 100000);
+console.log(re);
+
+// Fill Method
+
+// Positions -> (Value,start,end)
+// Go to last -> end-1
+// It is used to fill the array with any value
+const myA = [1, 2, 3, 4, 5, 6, 7, 8];
+myA.fill(0, 2, 5);
+console.log(myA);
+
+// Splice Method 
+
+// Positions _> (start , delete , insert )
+// It changes the original array, and return the deleted item
+
+const myray = ['item1', 'item2', 'item3'];
+
+// delete
+const deleteItem = myray.splice(1, 2);
+console.log("deleted item", deleteItem);
+console.log(myray);
+
+// insert 
+myray.splice(1, 0, 'inserted item');
+console.log(myray);
+
+// insert and delete 
+const deletedItem = myray.splice(1, 2, "inserted item1", "inserted item2")
+console.log("deleted item", deletedItem);
+console.log(myray);
