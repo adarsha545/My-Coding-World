@@ -624,3 +624,94 @@ for (let element of uniqueElements) {
   length++;
 }
 console.log(length);
+
+//* Map object
+//? In Object literal, Keys are either in string(99%) or symbol(1%) format
+// In Map also elements are also in key value pair
+//! In Map, Keys will be any format, we can't acess items using Dot/Bracket, rather use get function
+//? As Object are non-iterable, so we can't use (for of loop) there,rather use (for in loop)
+//Todo But in Map we can use (For of Loop) Directly
+
+const person97 = new Map();
+person97.set("firstName", "Harshit");
+person97.set("age", 7);
+person97.set(1, "one");
+person97.set([1, 2, 3], "onetwothree");
+person97.set({ 1: "one" }, "onetwothree");
+console.log(person97);
+
+//! Using Get function
+console.log(person97.get(1));
+
+//! Using For-of-loop
+for (let key of person97.keys()) {
+  console.log(key, typeof key);
+}
+
+//* Object-object pairing
+
+const person1 = {
+  id: 1,
+  firstName: "harshit",
+};
+const person2 = {
+  id: 2,
+  firstName: "harshta",
+};
+const extraInfo = new Map();
+extraInfo.set(person1, { age: 8, gender: "male" });
+extraInfo.set(person2, { age: 9, gender: "female" });
+console.log(extraInfo);
+console.log(person1.id);
+console.log(extraInfo.get(person1).gender);
+console.log(extraInfo.get(person2).gender);
+
+//* Clone using Object.assign
+
+// There have two different array, with different memory address
+const obje = {
+  key1: "value1",
+  key2: "value2",
+};
+
+const obj22 = Object.assign({}, obje);
+obje.key3 = "value3";
+console.log(obje);
+console.log(obj22);
+
+//* Optional chaining
+//?  (?)-> it checks the current value is present or not, if not present then it shows Undefined, or if present then it moves further
+const user = {
+  firstName: "Tanzio",
+  //address: { houseNumber: "1234" },
+};
+console.log(user?.firstName);
+console.log(user?.address?.houseNumber);
+
+//* Methods ->  function inside object
+//! this -> It represents the whole object, using this keyword we can acess any key inside that object
+
+function personInfo() {
+  console.log(`person name is ${this.firstName} and age is ${this.age}`);
+}
+const person70 = {
+  firstName: "harsh",
+  age: 8,
+  about: personInfo,
+};
+const person71 = {
+  firstName: "mohit",
+  age: 18,
+  about: personInfo,
+};
+const person72 = {
+  firstName: "nitish",
+  age: 17,
+  about: personInfo,
+};
+person70.about();
+person71.about();
+person72.about();
+
+//* "use strict";
+//? if we print this keyword, it gives by default window as object, to avoid this use "use strict"
