@@ -579,3 +579,29 @@ console.log(myray);
 const deletedItem = myray.splice(1, 2, "inserted item1", "inserted item2")
 console.log("deleted item", deletedItem);
 console.log(myray);
+
+// Iterables
+
+// In which we can use for of loop, like String, Array
+
+//For String
+const firstName = "Demon Slayer";
+ for(let char of firstName){
+    console.log(char);
+ }
+ 
+ //For Array
+const items = ['item1', 'item2', 'item3'];
+ for(let item of items){
+     console.log(item);
+ }
+//Objects are not Iterable
+
+//Array like Object
+
+// They have Length Property, and we can acess them via index, Example ->string
+const firstame = "Muzan Kibutsuzi";
+ console.log(firstame.length);
+ console.log(firstame[2]);
+
+
