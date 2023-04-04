@@ -715,3 +715,45 @@ person72.about();
 
 //* "use strict";
 //? if we print this keyword, it gives by default window as object, to avoid this use "use strict"
+
+//* Call method
+//! we can use any function, by calling (call function) and passing that particular object as this keyword,in call function
+function about(hobby, favMusician) {
+  console.log(this.firstName, this.age, hobby, favMusician);
+}
+const user1 = {
+  firstName: "Demon",
+  age: 8,
+};
+const user2 = {
+  firstName: "slayer",
+  age: 9,
+};
+about.call(user1, "Guiter", "Arman Malik");
+about.call(user2, "drump", "Ritviz");
+
+//* Apply Method
+//? Here we can pass more than one element as array
+about.apply(user1, ["flute", "Rupam"]);
+
+//* Bind Method
+//? Here bind returns a function, where values of the keys are stored.
+const fun = about.bind(user1, "instrument", "anupam");
+fun();
+
+//! !!! WARNING !!!
+const user13 = {
+  firstName: "LUCIFER",
+  age: 777,
+  about: function () {
+    console.log(this.firstName, this.age);
+  },
+};
+user13.about();
+//* Using bind Method
+const myFunct = user13.about.bind(user13);
+//? here if we don't use bind method, then window will be work as this keyword
+myFunct();
+
+//! In Arrow Function, (this keyword) takes value from its surroundings, it takes value one step upper.
+//todo, We can't change the value of this keyword in arrow function
