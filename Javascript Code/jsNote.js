@@ -757,3 +757,112 @@ myFunct();
 
 //! In Arrow Function, (this keyword) takes value from its surroundings, it takes value one step upper.
 //todo, We can't change the value of this keyword in arrow function
+
+//* Object.create -> It create Empty object & also make chain with reference object via __proto__
+//! Means, __proto__ is a reference of the current object.
+//? During running, if compiler does not finfd any method/property in the current object then it check in the __proto__ of the referene object
+// __proto__ and [[prototype]] are same, but prototype is different thing
+const userMethods = {
+  about: function () {
+    return `${this.firstName} is ${this.age} years old.`;
+  },
+  is18: function () {
+    return this.age >= 18;
+  },
+  sing: function () {
+    return "toon na na na la la ";
+  },
+};
+function createUser(firstName, lastName, email, age, address) {
+  const user50 = Object.create(userMethods); // {}
+  user50.firstName = firstName;
+  user50.lastName = lastName;
+  user50.email = email;
+  user50.age = age;
+  user50.address = address;
+  return user50;
+}
+const user51 = createUser(
+  "harshit",
+  "vashsith",
+  "harshit@gmail.com",
+  9,
+  "my address"
+);
+const user52 = createUser(
+  "harsh",
+  "vashsith",
+  "harshit@gmail.com",
+  19,
+  "my address"
+);
+const user53 = createUser(
+  "mohit",
+  "vashsitha",
+  "harshit@gmail.com",
+  17,
+  "my address"
+);
+console.log(user51);
+console.log(user51.about());
+console.log(user53.sing());
+
+//* Prototype -> It is just empty object ({}), where present only one function that is Constructor
+//? In Js, Function = Function + Object
+// (.name) property give function name
+//! Only Function provides Prototype Property
+function hello() {
+  console.log("hello world");
+}
+console.log(hello.prototype);
+hello.prototype.abc = "abc";
+hello.prototype.xyz = "xyz";
+hello.prototype.sing = function () {
+  return "lalalla";
+};
+console.log(hello.prototype.sing());
+console.log(hello.name);
+
+//! By default in Js, when we create function then the function give a prototype.
+//Todo,  we can create a relation between __proto__ and protype, by adding our methods to the current function's protype
+function createUser2(firstName, lastName, email, age, address) {
+  const user33 = Object.create(createUser2.prototype); // {}
+  user33.firstName = firstName;
+  user33.lastName = lastName;
+  user33.email = email;
+  user33.age = age;
+  user33.address = address;
+  return user33;
+}
+createUser2.prototype.about2 = function () {
+  return `${this.firstName} is ${this.age} years old.`;
+};
+createUser2.prototype.is182 = function () {
+  return this.age >= 18;
+};
+createUser2.prototype.sing2 = function () {
+  return "la la la la ";
+};
+const user17 = createUser2(
+  "harshit",
+  "vashsith",
+  "harshit@gmail.com",
+  18,
+  "my address"
+);
+const user18 = createUser2(
+  "harsh",
+  "vashsith",
+  "harshit@gmail.com",
+  19,
+  "my address"
+);
+const user19 = createUser2(
+  "mohit",
+  "vashsitha",
+  "harshit@gmail.com",
+  17,
+  "my address"
+);
+console.log(user17);
+console.log(user17.is182());
