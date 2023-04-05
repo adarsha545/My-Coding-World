@@ -866,3 +866,179 @@ const user19 = createUser2(
 );
 console.log(user17);
 console.log(user17.is182());
+
+//* New Keyword
+//? 1) It creates empty object and stored in this keyword
+//? 2) In empty object it stored values and after that it return this keyword by default
+//? 3) It sets the Object's __proto__ with function's Prototype.
+
+// Constructor function
+function CreateUser(firstName, lastName, email, age, address) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.email = email;
+  this.age = age;
+  this.address = address;
+}
+CreateUser.prototype.about = function () {
+  return `${this.firstName} is ${this.age} years old.`;
+};
+CreateUser.prototype.is18 = function () {
+  return this.age >= 18;
+};
+CreateUser.prototype.sing = function () {
+  return "la la la la ";
+};
+
+const user77 = new CreateUser(
+  "harshit",
+  "vashsith",
+  "harshit@gmail.com",
+  18,
+  "my address"
+);
+const user88 = new CreateUser(
+  "harsh",
+  "vashsith",
+  "harshit@gmail.com",
+  19,
+  "my address"
+);
+const user99 = new CreateUser(
+  "mohit",
+  "vashsitha",
+  "harshit@gmail.com",
+  17,
+  "my address"
+);
+console.log(user77);
+console.log(user77.is18());
+
+//! if you don't want to print prototype's key, then use hasOwnproperty(key)
+for (let key in user77) {
+  //Printing All keys
+  //console.log(key);
+  if (user77.hasOwnProperty(key)) {
+    console.log(key);
+  }
+}
+
+//* GetPrototype of function
+let numberr = [1, 2, 3];
+console.log(Object.getPrototypeOf(numberr));
+function helloo() {
+  console.log("hello");
+}
+console.log(helloo.prototype);
+
+//* In Js, class is fake, by deault internally it works as prototype way
+class CreateUser11 {
+  constructor(firstName, lastName, email, age, address) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+    this.age = age;
+    this.address = address;
+  }
+
+  about() {
+    return `${this.firstName} is ${this.age} years old.`;
+  }
+  is18() {
+    return this.age >= 18;
+  }
+  sing() {
+    return "la la la la ";
+  }
+}
+
+const user101 = new CreateUser11(
+  "harshit",
+  "vashsith",
+  "harshit@gmail.com",
+  18,
+  "my address"
+);
+const user102 = new CreateUser11(
+  "harsh",
+  "vashsith",
+  "harshit@gmail.com",
+  19,
+  "my address"
+);
+const user103 = new CreateUser11(
+  "mohit",
+  "vashsitha",
+  "harshit@gmail.com",
+  17,
+  "my address"
+);
+//! It's type also same, Object type
+console.log(Object.getPrototypeOf(user101));
+console.log(user101);
+
+//* Example of class, with extends
+
+class Animal {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  eat() {
+    return `${this.name} is eating`;
+  }
+
+  isSuperCute() {
+    return this.age <= 1;
+  }
+
+  isCute() {
+    return true;
+  }
+}
+class Dog extends Animal {
+  constructor(name, age, speed) {
+    super(name, age);
+    this.speed = speed;
+  }
+  //? First it checks that the property is present in that class or not, if present then it takes that, if not then it search that in super class.
+  run() {
+    return `${this.name} is running at ${this.speed}kmph`;
+  }
+}
+// object and instance are same thing
+const tommy = new Dog("tommy", 3, 45);
+console.log(tommy.run());
+
+//* Getter And Setter
+//? In class, Get word makes methods as a property,so we can use them as property
+
+class Person {
+  constructor(firstName, lastName, age) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+  }
+  static classInfo() {
+    return "this is person class";
+  }
+  static desc = "static property";
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+  set fullName(fullName) {
+    const [firstName, lastName] = fullName.split(" ");
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+}
+const person101 = new Person("harshit", "sharma", 5);
+console.log(person101.fullName);
+person101.fullName = "mohit vashistha";
+console.log(person101.fullName);
+
+//* we can call methods via class, if we make them static , and they are not accessable by objects
+const g = Person.classInfo();
+console.log(g);
+console.log(Person.desc);
