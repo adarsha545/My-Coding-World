@@ -1042,3 +1042,4 @@ console.log(person101.fullName);
 const g = Person.classInfo();
 console.log(g);
 console.log(Person.desc);
+//? Part-1 Completed !!
